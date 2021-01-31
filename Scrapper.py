@@ -18,7 +18,7 @@ url_tmp = "www.instagram.com/explore/tags/" + keyword
 url = "http://" + parse.quote(url_tmp)
 print(url)
 
-user_data_path = 'D:/PycharmProject/Instar_Scrapper/tmp/Instar'
+user_data_path = 'tmp/Instar'
 options = Options()
 options.add_argument('--no-sandbox')
 # options.add_argument('--headless')
@@ -26,7 +26,7 @@ options.add_experimental_option('useAutomationExtension', False)
 options.add_argument('--disable-gpu')
 options.add_argument("user-data-dir=%s" % user_data_path)
 options.add_argument("window-size=1920x1080")
-driver = webdriver.Chrome("../chromedriver.exe", options=options)  # 크롬 드라이버 로드
+driver = webdriver.Chrome("./chromedriver.exe", options=options)  # 크롬 드라이버 로드
 
 driver.get(url)  # "keyword" 검색
 driver.implicitly_wait(3)
@@ -49,6 +49,7 @@ driver.implicitly_wait(3)
 # # driver.close()
 # # quit()
 # driver.save_screenshot('test.jpg')
+
 # 사진 클릭
 CSS_tran = "div.Nnq7C.weEfm"  # 사진 버튼 정의 ("div.Nnq7C.weEfm")
 tran_button = driver.find_element_by_css_selector(CSS_tran)  # 사진 버튼 찾기
